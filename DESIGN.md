@@ -127,7 +127,7 @@ The palette is four values, no more: a near-black ground, a near-white for text 
 - **Headline** (500, 18.5px → 19.5px at ≥640px, line-height 1.375): the name, "Victor Ajibade," top left. Medium weight is the only place the page uses a weight above 400.
 - **Subtitle** (400, 16.5px → 17px at ≥640px, line-height 1.375, gray): the role line under the name, "Software engineer."
 - **Body** (400, 13.5px → 14.5px at ≥640px, line-height 1.3): the working size for row labels, entry titles, project names, and inline detail text. This is what most of the page is set in.
-- **Detail** (400, 14px, line-height 1.6, gray): the longer story paragraphs inside an opened "Built" or "Contract" entry, and the "About" paragraph. A looser line-height for reading in short bursts.
+- **Detail** (400, 14px, line-height 1.6, gray): the longer story paragraphs inside an opened "Built", "Contract" or "Automation" entry, and the "About" paragraph. A looser line-height for reading in short bursts.
 
 A single letter-spacing value, `-0.01em`, is applied once at the page's main container and inherited everywhere; no role overrides it.
 
@@ -141,7 +141,7 @@ The page is a single column, centered, capped at `42rem` (672px), with responsiv
 
 Below the header and intro, content is a stack of label rows. Each row is a two-column grid: a fixed label column (`Now`, `Built`, `Projects`...) and a fluid content column. The label column widens in three steps as the viewport grows: 5.5rem (88px) under 480px, 6.5rem (104px) from 480px, 8rem (128px) from 640px. This is the entire layout system: one grid template, reused for every row, with no per-row exceptions except the one noted below for opened entries on small screens.
 
-Vertical rhythm is close and consistent: 20px between row sections, 12px between entries inside a row that lists several (Built, Contract, Projects, Clients), 10px between story paragraphs inside an opened entry, 4px between a link line and its supporting detail line, 24px above a figure. The header photo and name sit in a single row with 24px of gap between them.
+Vertical rhythm is close and consistent: 20px between row sections, 12px between entries inside a row that lists several (Built, Contract, Automation, Projects, Clients), 10px between story paragraphs inside an opened entry, 4px between a link line and its supporting detail line, 24px above a figure. The header photo and name sit in a single row with 24px of gap between them.
 
 **Exception:** on screens under 480px, an opened entry's story panel bleeds left by the width of the label column, so the reading measure isn't squeezed by a label that no longer needs to compete for space once the row is open.
 
@@ -172,15 +172,15 @@ There are no borders, no card edges, and no divider lines between rows. The hair
 ### Links (plain-text)
 
 - **Style:** no button chrome at all. A link is near-white text with a transparent underline at rest.
-- **Hover / Focus:** the underline fades in to gray (`decoration-mute`) over 200ms. Links that point off-site (Projects, Clients) carry a small diagonal arrow (12px viewBox, 1.2px stroke, gray) after the label; on hover the arrow nudges up and right by 1px over 200ms with an ease-out curve, while the underline fades in at the same time.
+- **Hover / Focus:** the underline fades in to gray (`decoration-mute`) over 200ms. Links that point off-site (Projects, Clients) carry a small diagonal arrow (12px viewBox, 1.2px stroke, gray) after the label; on hover the arrow nudges up and right by 1px over 200ms with an ease-out curve, while the underline fades in at the same time. A list item with no public link shows its name as plain text, with no arrow. A proof link inside a gray detail line (for example "See the transcripts") is near-white so it reads as a link.
 - **Focus ring:** every focusable element gets a 1px solid near-white outline, offset 3px, with a 2px corner radius. This is the only visible focus treatment in the system; there is no separate glow or background change.
 
-### Disclosure entries ("Built" / "Contract" rows)
+### Disclosure entries ("Built" / "Contract" / "Automation" rows)
 
-- **Trigger:** a native `<details>/<summary>`, so it needs no script and works with the browser's own accessibility tree. The visible trigger is the entry title, its detail line, and its year, all in body/gray, with a small plus icon (10px, gray, 1.2px stroke) after the title.
+- **Trigger:** a native `<details>/<summary>`, so it needs no script and works with the browser's own accessibility tree. The visible trigger is the entry title and its one-line gray detail, with a small plus icon (10px, gray, 1.2px stroke) after the title.
 - **Open state:** the plus icon rotates 45° into an ×, and the title's underline turns gray and stays gray for as long as the entry is open (the open state keeps its own affordance visible, it does not just revert to the hover style).
 - **Reveal motion:** the panel's height animates open and closed over 500ms with the system's slow-reveal easing (`cubic-bezier(0.16, 1, 0.3, 1)`), using `::details-content` transitions rather than a plain hide/show. This is the slowest, most deliberate motion in the system, reserved for content actually arriving.
-- **Signature component, the line figure:** inside an opened "Built" entry, a small inline SVG (roughly 280px wide, viewBox-scaled) sketches the fact just told, one codebase branching to three domains, a version timeline, a token passed between two sites. Every figure shares one visual vocabulary: a near-white stroke (`.draw`, 1.2px, round caps and joins) for the main line, gray dots for points, gray text (`.mute`) for secondary labels inline in a caption, and hairline gray (`.grid`) for any reference line. When an entry opens, `.draw` strokes animate in over 900ms with the same slow easing as the panel reveal, so the line looks hand-drawn rather than pasted in (this motion is skipped under `prefers-reduced-motion`). A figure never uses a fill, a color outside the four-value palette, or a shape besides a line and a dot.
+- **Signature component, the line figure:** inside an opened "Built" entry, a small inline SVG (roughly 280px wide, viewBox-scaled) sketches the fact just told: one codebase branching to three sites, one library feeding two apps, and a line chart of the move to TypeScript. Every figure shares one visual vocabulary: a near-white stroke (`.draw`, 1.2px, round caps and joins) for the main line, near-white dots for points, gray text (`.mute`) for secondary labels inline in a caption, and hairline gray (`.grid`) for any reference line. When an entry opens, `.draw` strokes animate in over 900ms with the same slow easing as the panel reveal, so the line looks hand-drawn rather than pasted in (this motion is skipped under `prefers-reduced-motion`). A figure never uses a fill, a color outside the four-value palette, or a shape besides a line and a dot. Charts label only the points that carry the story (the TypeScript chart labels three: when I joined, the jump and 100%), always visible, with no hover tooltips, because hover does not work on phones.
 
 ### Navigation / header
 
