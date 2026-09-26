@@ -66,6 +66,17 @@ const contract = [
   },
 ];
 
+const automation = [
+  {
+    title: "Automations with n8n",
+    detail: "Self-hosted on my own server, with AI agents and Telegram",
+    story: [
+      "Since 2025 I have run my own n8n on a VPS I set up with Docker. The biggest workflow runs my church's weekly reports over WhatsApp and Telegram, and switches to another AI model when one fails.",
+      "Others turn YouTube videos into to-do items, answer questions about documents in Telegram, and watch a CI pipeline for failures. They all share one error handler and back themselves up to git. On the same server I run Hermes, an open-source AI agent, and I talk to it through Telegram by text or voice.",
+    ],
+  },
+];
+
 const external = { target: "_blank", rel: "noreferrer" };
 
 const projects = [
@@ -177,6 +188,7 @@ const elsewhere = [
       {[
         { label: "Built", items: built },
         { label: "Contract", items: contract },
+        { label: "Automation", items: automation },
       ].map(({ label, items }) => (
         <section class="row">
           <h2>{label}</h2>

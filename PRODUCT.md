@@ -28,7 +28,7 @@ Most of Victor's best work is private company code. The site shows the systems h
 
 - One static page. No blog, no CV link, no testimonials in this release.
 - The owner edits the copy in the repo after the first draft.
-- Content order: intro, Kudy work, contract work, side projects, client sites, earlier work (2021), about, contact.
+- Content order: intro, Kudy work, contract work, automation, side projects, client sites, earlier work (2021), about, contact.
 
 ## Capabilities and Constraints
 
