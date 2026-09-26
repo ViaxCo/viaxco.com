@@ -2,10 +2,10 @@
 name: viaxco.com
 description: A quiet dark index of a working engineer, told in gray labels and plain text links.
 colors:
-  soft-black: "#161514"
-  near-white: "#efeff0"
-  quiet-gray: "#909090"
-  hairline: "#3a3936"
+  near-black: "#0a0a0a"
+  near-white: "#ededed"
+  quiet-gray: "#a3a3a3"
+  hairline: "#2a2a2a"
 typography:
   display:
     fontFamily: "Albert Sans Variable, ui-sans-serif, system-ui, sans-serif"
@@ -101,19 +101,19 @@ The palette is four values, no more: a near-black ground, a near-white for text 
 
 ### Primary
 
-- **Soft Black** (`#161514`): the page background (`html`) and the base of the whole system. Close to true black but warm, never a pure `#000`.
+- **Near Black** (`#0a0a0a`): the page background (`html`) and the base of the whole system. Close to true black and fully neutral, with no colour tint. Never a pure `#000`, which smears on OLED screens during scrolling.
 
 ### Neutral
 
-- **Near-White** (`#efeff0`): the default text color, used for the name, the intro sentence, row content, and link text.
-- **Quiet Gray** (`#909090`): every label (Now, Built, Projects...), every secondary line (dates, details, "· 2024"), and the stroke color of small icons (arrow, plus/×). This is the system's supporting voice.
-- **Hairline** (`#3a3936`): the quietest mark in the system. Used only for the underline under an inline "read more" link inside an open entry, and for the thin construction lines inside the small line figures (axis and connector strokes, when a figure needs one).
+- **Near-White** (`#ededed`): the default text color, used for the name, the intro sentence, row content, and link text.
+- **Quiet Gray** (`#a3a3a3`): every label (Now, Built, Projects...), every secondary line (dates, details, "· 2024"), and the stroke color of small icons (arrow, plus/×). This is the system's supporting voice.
+- **Hairline** (`#2a2a2a`): the quietest mark in the system. Used only for the underline under an inline "read more" link inside an open entry, and for the thin construction lines inside the small line figures (axis and connector strokes, when a figure needs one).
 
 ### Named Rules
 
 **The No-Accent Rule.** There is no primary or secondary accent color. Every visual distinction on the page is a value shift between these four grays, never a hue. If a new element seems to need color to stand out, that is a sign it should compete on size, weight, or position instead.
 
-**The Selection-Is-Inverted Rule.** Text selection (`::selection`) swaps the two ends of the palette: near-white background, soft-black text. It is the one moment the system runs its contrast in reverse, and it is confirmed, exact, and load-bearing (not a browser default left in place).
+**The Selection-Is-Inverted Rule.** Text selection (`::selection`) swaps the two ends of the palette: near-white background, near-black text. It is the one moment the system runs its contrast in reverse, and it is confirmed, exact, and load-bearing (not a browser default left in place).
 
 ## Typography
 
@@ -190,7 +190,7 @@ There are no borders, no card edges, and no divider lines between rows. The hair
 
 ### Do:
 
-- **Do** keep every new visual difference to a shift in the four established values (soft-black, near-white, quiet-gray, hairline), never a new hue.
+- **Do** keep every new visual difference to a shift in the four established values (near-black, near-white, quiet-gray, hairline), never a new hue.
 - **Do** reuse the one two-column label grid for any new row; don't invent a second layout pattern for a new section.
 - **Do** keep hover feedback fast (200ms) and reveal/open motion slow (500-900ms, `cubic-bezier(0.16, 1, 0.3, 1)`); don't blend the two speeds.
 - **Do** set every new figure in the same line-dot-text vocabulary (`.draw`, `.mute`, `.grid`, `.hit`, `.tip`) so a new figure reads as part of the same family as the other figures.

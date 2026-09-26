@@ -3,10 +3,10 @@
 
 @theme {
   --font-sans: "Albert Sans Variable", ui-sans-serif, system-ui, sans-serif;
-  --color-ground: #161514;
-  --color-ink: #efeff0;
-  --color-mute: #909090;
-  --color-line: #3a3936;
+  --color-ground: #0a0a0a;
+  --color-ink: #ededed;
+  --color-mute: #a3a3a3;
+  --color-line: #2a2a2a;
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 

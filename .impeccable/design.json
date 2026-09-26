@@ -4,9 +4,9 @@
   "title": "Design System: viaxco.com",
   "extensions": {
     "colorMeta": {
-      "soft-black": {
+      "near-black": {
         "role": "primary",
-        "displayName": "Soft Black",
+        "displayName": "Near Black",
         "canonical": "oklch(16% 0.004 60)",
         "tonalRamp": [
           "oklch(15% 0.004 60)",
@@ -134,7 +134,7 @@
       "refersTo": "link",
       "description": "An external link (Projects, Clients): near-white text, transparent underline at rest, gray underline and a nudging arrow on hover.",
       "html": "<a href=\"#\" class=\"ds-link\">Interview Studio<svg viewBox=\"0 0 12 12\" class=\"ds-link-arrow\" aria-hidden=\"true\"><path d=\"M3.5 8.5l5-5M4.5 3.5h4v4\"/></svg></a>",
-      "css": ".ds-link { display: inline-flex; align-items: center; gap: 6px; color: #efeff0; text-decoration: underline; text-decoration-color: transparent; text-decoration-thickness: 1px; text-underline-offset: 0.25em; transition: color 0.2s cubic-bezier(0.4,0,0.2,1), text-decoration-color 0.2s cubic-bezier(0.4,0,0.2,1); font-family: 'Albert Sans Variable', ui-sans-serif, system-ui, sans-serif; font-size: 13.5px; letter-spacing: -0.01em; } .ds-link:hover, .ds-link:focus-visible { text-decoration-color: #909090; } .ds-link:focus-visible { outline: 1px solid #efeff0; outline-offset: 3px; border-radius: 2px; } .ds-link-arrow { width: 12px; height: 12px; flex-shrink: 0; stroke: #909090; stroke-width: 1.2; fill: none; transition: transform 0.2s cubic-bezier(0,0,0.2,1); } .ds-link:hover .ds-link-arrow { transform: translate(1px, -1px); }"
+      "css": ".ds-link { display: inline-flex; align-items: center; gap: 6px; color: #ededed; text-decoration: underline; text-decoration-color: transparent; text-decoration-thickness: 1px; text-underline-offset: 0.25em; transition: color 0.2s cubic-bezier(0.4,0,0.2,1), text-decoration-color 0.2s cubic-bezier(0.4,0,0.2,1); font-family: 'Albert Sans Variable', ui-sans-serif, system-ui, sans-serif; font-size: 13.5px; letter-spacing: -0.01em; } .ds-link:hover, .ds-link:focus-visible { text-decoration-color: #a3a3a3; } .ds-link:focus-visible { outline: 1px solid #ededed; outline-offset: 3px; border-radius: 2px; } .ds-link-arrow { width: 12px; height: 12px; flex-shrink: 0; stroke: #a3a3a3; stroke-width: 1.2; fill: none; transition: transform 0.2s cubic-bezier(0,0,0.2,1); } .ds-link:hover .ds-link-arrow { transform: translate(1px, -1px); }"
     },
     {
       "name": "Disclosure Entry",
@@ -142,7 +142,7 @@
       "refersTo": "entry",
       "description": "A 'Built' row: a native details/summary trigger with a plus-to-cross icon; opens to a gray story and a hand-drawn line figure.",
       "html": "<details class=\"ds-entry\"><summary><span class=\"ds-entry-title\">One codebase, three countries<svg viewBox=\"0 0 10 10\" class=\"ds-entry-icon\" aria-hidden=\"true\"><path d=\"M5 1.5v7M1.5 5h7\"/></svg></span><span class=\"ds-entry-sub\">kudy.io, kudy.ng 2024, kudy.us 2025</span><span class=\"ds-entry-sub\">2024</span></summary><div class=\"ds-entry-panel\"><p>Kudy began with one site, kudy.io. I split the codebase so it builds a separate site per country.</p></div></details>",
-      "css": ".ds-entry summary { cursor: pointer; list-style: none; font-family: 'Albert Sans Variable', ui-sans-serif, system-ui, sans-serif; font-size: 13.5px; letter-spacing: -0.01em; color: #efeff0; } .ds-entry summary::-webkit-details-marker { display: none; } .ds-entry-title { display: inline-flex; align-items: center; gap: 8px; text-decoration: underline; text-decoration-color: transparent; transition: text-decoration-color 0.2s cubic-bezier(0.4,0,0.2,1); } .ds-entry summary:hover .ds-entry-title, .ds-entry[open] .ds-entry-title { text-decoration-color: #909090; } .ds-entry-sub { display: block; color: #909090; } .ds-entry-icon { width: 10px; height: 10px; stroke: #909090; stroke-width: 1.2; stroke-linecap: round; fill: none; transition: transform 0.3s; } .ds-entry[open] .ds-entry-icon { transform: rotate(45deg); } .ds-entry-panel { max-width: 34rem; padding: 12px 0 20px; font-size: 14px; line-height: 1.6; color: #909090; } .ds-entry::details-content { block-size: 0; overflow: visible clip; transition: block-size 0.5s cubic-bezier(0.16,1,0.3,1), content-visibility 0.5s allow-discrete; } .ds-entry[open]::details-content { block-size: auto; }"
+      "css": ".ds-entry summary { cursor: pointer; list-style: none; font-family: 'Albert Sans Variable', ui-sans-serif, system-ui, sans-serif; font-size: 13.5px; letter-spacing: -0.01em; color: #ededed; } .ds-entry summary::-webkit-details-marker { display: none; } .ds-entry-title { display: inline-flex; align-items: center; gap: 8px; text-decoration: underline; text-decoration-color: transparent; transition: text-decoration-color 0.2s cubic-bezier(0.4,0,0.2,1); } .ds-entry summary:hover .ds-entry-title, .ds-entry[open] .ds-entry-title { text-decoration-color: #a3a3a3; } .ds-entry-sub { display: block; color: #a3a3a3; } .ds-entry-icon { width: 10px; height: 10px; stroke: #a3a3a3; stroke-width: 1.2; stroke-linecap: round; fill: none; transition: transform 0.3s; } .ds-entry[open] .ds-entry-icon { transform: rotate(45deg); } .ds-entry-panel { max-width: 34rem; padding: 12px 0 20px; font-size: 14px; line-height: 1.6; color: #a3a3a3; } .ds-entry::details-content { block-size: 0; overflow: visible clip; transition: block-size 0.5s cubic-bezier(0.16,1,0.3,1), content-visibility 0.5s allow-discrete; } .ds-entry[open]::details-content { block-size: auto; }"
     },
     {
       "name": "Round Avatar",
@@ -158,7 +158,7 @@
       "refersTo": "figure",
       "description": "The hand-drawn SVG inside an opened 'Built' entry. Shared vocabulary: a near-white drawn line, gray dots and captions, hairline reference strokes. The main path animates in on open.",
       "html": "<figure class=\"ds-figure\"><svg viewBox=\"0 0 280 92\" role=\"img\" aria-label=\"One codebase builds kudy.io, kudy.ng and kudy.us\"><text x=\"0\" y=\"50\">one codebase</text><path class=\"ds-draw\" pathLength=\"1\" d=\"M88 46H124M124 16V76M124 16H156M124 46H156M124 76H156\"/><circle cx=\"160\" cy=\"16\" r=\"3\"/><circle cx=\"160\" cy=\"46\" r=\"3\"/><circle cx=\"160\" cy=\"76\" r=\"3\"/><text x=\"170\" y=\"20\">kudy.io</text><text x=\"170\" y=\"50\">kudy.ng<tspan class=\"ds-mute\"> · 2024</tspan></text><text x=\"170\" y=\"80\">kudy.us<tspan class=\"ds-mute\"> · 2025</tspan></text></svg></figure>",
-      "css": ".ds-figure svg { width: 100%; max-width: 20rem; overflow: visible; fill: #efeff0; font-size: 12px; font-family: 'Albert Sans Variable', ui-sans-serif, system-ui, sans-serif; } .ds-figure circle { fill: #efeff0; } .ds-figure .ds-mute { fill: #909090; } .ds-draw { stroke: #efeff0; fill: none; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; } .ds-entry[open] .ds-draw { stroke-dasharray: 1; animation: ds-draw 0.9s cubic-bezier(0.16,1,0.3,1) both; } @keyframes ds-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }"
+      "css": ".ds-figure svg { width: 100%; max-width: 20rem; overflow: visible; fill: #ededed; font-size: 12px; font-family: 'Albert Sans Variable', ui-sans-serif, system-ui, sans-serif; } .ds-figure circle { fill: #ededed; } .ds-figure .ds-mute { fill: #a3a3a3; } .ds-draw { stroke: #ededed; fill: none; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; } .ds-entry[open] .ds-draw { stroke-dasharray: 1; animation: ds-draw 0.9s cubic-bezier(0.16,1,0.3,1) both; } @keyframes ds-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }"
     },
     {
       "name": "Label Row",
@@ -166,7 +166,7 @@
       "refersTo": "row-label",
       "description": "The recurring two-column grid: a fixed gray label ('Now', 'Built'...) beside fluid content. Every section on the page reuses this one row.",
       "html": "<section class=\"ds-row\"><h2>Now</h2><div><p>Kudy Financials · 2023 — now</p></div></section>",
-      "css": ".ds-row { display: grid; grid-template-columns: 8rem 1fr; column-gap: 12px; } .ds-row h2 { color: #909090; font-size: 13.5px; letter-spacing: -0.01em; font-weight: 400; margin: 0; } .ds-row p { color: #efeff0; font-size: 13.5px; letter-spacing: -0.01em; margin: 0; }"
+      "css": ".ds-row { display: grid; grid-template-columns: 8rem 1fr; column-gap: 12px; } .ds-row h2 { color: #a3a3a3; font-size: 13.5px; letter-spacing: -0.01em; font-weight: 400; margin: 0; } .ds-row p { color: #ededed; font-size: 13.5px; letter-spacing: -0.01em; margin: 0; }"
     }
   ],
   "narrative": {
@@ -187,7 +187,7 @@
       },
       {
         "name": "The Selection-Is-Inverted Rule",
-        "body": "Text selection (::selection) swaps the two ends of the palette: near-white background, soft-black text. It is the one moment the system runs its contrast in reverse, and it is confirmed, exact, and load-bearing (not a browser default left in place).",
+        "body": "Text selection (::selection) swaps the two ends of the palette: near-white background, near-black text. It is the one moment the system runs its contrast in reverse, and it is confirmed, exact, and load-bearing (not a browser default left in place).",
         "section": "colors"
       },
       {
@@ -212,7 +212,7 @@
       }
     ],
     "dos": [
-      "Do keep every new visual difference to a shift in the four established values (soft-black, near-white, quiet-gray, hairline), never a new hue.",
+      "Do keep every new visual difference to a shift in the four established values (near-black, near-white, quiet-gray, hairline), never a new hue.",
       "Do reuse the one two-column label grid for any new row; don't invent a second layout pattern for a new section.",
       "Do keep hover feedback fast (200ms) and reveal/open motion slow (500-900ms, cubic-bezier(0.16, 1, 0.3, 1)); don't blend the two speeds.",
       "Do set every new figure in the same line-dot-text vocabulary (.draw, .mute, .grid, .hit, .tip) so a new figure reads as part of the same family as the other figures."

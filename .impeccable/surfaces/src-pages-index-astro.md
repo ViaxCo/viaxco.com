@@ -15,7 +15,7 @@ Approved comp: .impeccable/mocks/comp-c.png (label-column layout, paco.me craft 
 
 THESIS: A quiet dark index of a working engineer. Gray labels in a narrow left column, content on the right; small type, wide space. It refuses the hero-plus-cards portfolio.
 
-OWN-WORLD: Soft black #161514 ground, near-white #efeff0 text, gray #909090 labels and detail. Albert Sans only, small sizes, no accent colour. No cards, boxes, shadows or dividers; rows and space carry structure. Links are plain text with a small arrow.
+OWN-WORLD: Near-black #0a0a0a ground, near-white #ededed text, gray #a3a3a3 labels and detail. Albert Sans only, small sizes, no accent colour. No cards, boxes, shadows or dividers; rows and space carry structure. Links are plain text with a small arrow.
 
 STORY: The visitor learns who Victor is in one sentence, sees what he built at Kudy with honest credit, opens the stories that interest them, checks the live projects, and emails him.
 
