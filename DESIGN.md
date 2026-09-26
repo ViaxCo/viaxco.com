@@ -37,7 +37,26 @@ typography:
     fontWeight: 400
     lineHeight: 1.6
     letterSpacing: "-0.01em"
+  display-desktop:
+    fontFamily: "Albert Sans Variable, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "20px"
+    fontWeight: 400
+    lineHeight: 1.3
+    letterSpacing: "-0.01em"
+  headline-desktop:
+    fontFamily: "Albert Sans Variable, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "19.5px"
+    fontWeight: 500
+    lineHeight: 1.375
+    letterSpacing: "-0.01em"
+  figure:
+    fontFamily: "Albert Sans Variable, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "12px"
+    fontWeight: 400
+    lineHeight: 1.2
+    letterSpacing: "-0.01em"
 rounded:
+  focus: "2px"
   full: "9999px"
 spacing:
   xs: "4px"
@@ -64,7 +83,7 @@ components:
 
 **Creative North Star: "The Quiet Ledger"**
 
-This is one page, read like a short, well-kept record: a name, one sentence, then rows of plain fact. Nothing on the page asks for attention on its own. A visitor's eye moves down a narrow column of gray labels (Now, Built, Projects, Elsewhere) into wider columns of near-white text, and the only color in the whole system is the gap between "bright" and "dim." There is no accent hue, no card, no shadow, no icon set beyond a hairline arrow and a plus sign. The one flourish the page allows itself is a small hand-drawn line figure that appears when a "Built" row opens, sketching the fact just told (three domains from one codebase, a version timeline, a token trading hands).
+This is one page, read like a short, well-kept record: a name, one sentence, then rows of plain fact. Nothing on the page asks for attention on its own. A visitor's eye moves down a narrow column of gray labels (Now, Built, Projects, Elsewhere) into wider columns of near-white text, and the only color in the whole system is the gap between "bright" and "dim." There is no accent hue, no card, no shadow, no icon set beyond a hairline arrow and a plus sign. The one flourish the page allows itself is a small hand-drawn line figure that appears when a "Built" row opens, sketching the fact just told (three sites from one codebase, one library feeding two apps, a chart of the move to TypeScript).
 
 The page is dark by product commitment, not by mood: it is dark because that is the only theme this site has. Within that constraint the register is restrained and factual, closer to a well-set terminal or a lab notebook than a marketing page. It rejects the hero-plus-cards portfolio shape on purpose: no boxed project tiles, no big display headline, no testimonial strip.
 

@@ -66,20 +66,65 @@
       }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display", "purpose": "The intro sentence under the name; the largest text on the page." },
-      "headline": { "displayName": "Headline", "purpose": "The name, top left. The only text set at medium weight." },
-      "subtitle": { "displayName": "Subtitle", "purpose": "The role line under the name, in gray." },
-      "body": { "displayName": "Body", "purpose": "Row labels, entry titles, project names, inline detail. The working size for most of the page." },
-      "detail": { "displayName": "Detail", "purpose": "Longer story paragraphs inside an opened entry, and the About paragraph." }
+      "display": {
+        "displayName": "Display",
+        "purpose": "The intro sentence under the name; the largest text on the page."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "The name, top left. The only text set at medium weight."
+      },
+      "subtitle": {
+        "displayName": "Subtitle",
+        "purpose": "The role line under the name, in gray."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Row labels, entry titles, project names, inline detail. The working size for most of the page."
+      },
+      "detail": {
+        "displayName": "Detail",
+        "purpose": "Longer story paragraphs inside an opened entry, and the About paragraph."
+      },
+      "display-desktop": {
+        "displayName": "Display (desktop)",
+        "purpose": "The intro sentence from 640px up."
+      },
+      "headline-desktop": {
+        "displayName": "Headline (desktop)",
+        "purpose": "The name from 640px up."
+      },
+      "figure": {
+        "displayName": "Figure",
+        "purpose": "Labels, axis text and captions inside the line figures."
+      }
     },
     "motion": [
-      { "name": "ease-hover", "value": "cubic-bezier(0.4, 0, 0.2, 1)", "purpose": "Default 200ms transition for link underline and color hover states." },
-      { "name": "ease-out-nudge", "value": "cubic-bezier(0, 0, 0.2, 1)", "purpose": "200ms transform on the external-link arrow's hover nudge." },
-      { "name": "ease-out-expo", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "The slow-reveal curve: 500ms entry panel open/close, 900ms figure line-draw." }
+      {
+        "name": "ease-hover",
+        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Default 200ms transition for link underline and color hover states."
+      },
+      {
+        "name": "ease-out-nudge",
+        "value": "cubic-bezier(0, 0, 0.2, 1)",
+        "purpose": "200ms transform on the external-link arrow's hover nudge."
+      },
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The slow-reveal curve: 500ms entry panel open/close, 900ms figure line-draw."
+      }
     ],
     "breakpoints": [
-      { "name": "narrow", "value": "480px" },
-      { "name": "sm", "value": "640px" }
+      {
+        "name": "narrow",
+        "value": "480px"
+      },
+      {
+        "name": "sm",
+        "value": "640px"
+      }
     ]
   },
   "components": [
@@ -126,7 +171,7 @@
   ],
   "narrative": {
     "northStar": "The Quiet Ledger",
-    "overview": "This is one page, read like a short, well-kept record: a name, one sentence, then rows of plain fact. Nothing on the page asks for attention on its own. A visitor's eye moves down a narrow column of gray labels (Now, Built, Projects, Elsewhere) into wider columns of near-white text, and the only color in the whole system is the gap between \"bright\" and \"dim.\" There is no accent hue, no card, no shadow, no icon set beyond a hairline arrow and a plus sign. The one flourish the page allows itself is a small hand-drawn line figure that appears when a \"Built\" row opens, sketching the fact just told (three domains from one codebase, a version timeline, a token trading hands).\n\nThe page is dark by product commitment, not by mood: it is dark because that is the only theme this site has. Within that constraint the register is restrained and factual, closer to a well-set terminal or a lab notebook than a marketing page. It rejects the hero-plus-cards portfolio shape on purpose: no boxed project tiles, no big display headline, no testimonial strip.",
+    "overview": "This is one page, read like a short, well-kept record: a name, one sentence, then rows of plain fact. Nothing on the page asks for attention on its own. A visitor's eye moves down a narrow column of gray labels (Now, Built, Projects, Elsewhere) into wider columns of near-white text, and the only color in the whole system is the gap between \"bright\" and \"dim.\" There is no accent hue, no card, no shadow, no icon set beyond a hairline arrow and a plus sign. The one flourish the page allows itself is a small hand-drawn line figure that appears when a \"Built\" row opens, sketching the fact just told (three sites from one codebase, one library feeding two apps, a chart of the move to TypeScript).\n\nThe page is dark by product commitment, not by mood: it is dark because that is the only theme this site has. Within that constraint the register is restrained and factual, closer to a well-set terminal or a lab notebook than a marketing page. It rejects the hero-plus-cards portfolio shape on purpose: no boxed project tiles, no big display headline, no testimonial strip.",
     "keyCharacteristics": [
       "One page, one column, no boxes.",
       "Three text colors and nothing else: near-white for what matters, gray for what supports it, and the near-black ground.",
@@ -135,12 +180,36 @@
       "Motion has two speeds: a quick 200ms nudge for hover, and a slow, confident reveal (500-900ms) for anything that opens or draws itself in."
     ],
     "rules": [
-      { "name": "The No-Accent Rule", "body": "There is no primary or secondary accent color. Every visual distinction on the page is a value shift between these four grays, never a hue. If a new element seems to need color to stand out, that is a sign it should compete on size, weight, or position instead.", "section": "colors" },
-      { "name": "The Selection-Is-Inverted Rule", "body": "Text selection (::selection) swaps the two ends of the palette: near-white background, soft-black text. It is the one moment the system runs its contrast in reverse, and it is confirmed, exact, and load-bearing (not a browser default left in place).", "section": "colors" },
-      { "name": "The One-Family Rule", "body": "Every character on the page, from the name to a figure's axis label, is Albert Sans. There is no serif, no mono, no second family for numbers or code.", "section": "typography" },
-      { "name": "The One-Grid Rule", "body": "Every row on the page uses the same two-column label grid. A new section should reuse it rather than invent a different column split.", "section": "layout" },
-      { "name": "The Flat-By-Default Rule", "body": "Nothing lifts off the page. If a new component seems to need a shadow to separate it from its surroundings, add space or a label instead.", "section": "elevation" },
-      { "name": "The Circle-Only Rule", "body": "The photo and the dots inside a line figure are the only curves on the page. A new element that wants a rounded corner should default to sharp instead, unless it is genuinely circular.", "section": "shapes" }
+      {
+        "name": "The No-Accent Rule",
+        "body": "There is no primary or secondary accent color. Every visual distinction on the page is a value shift between these four grays, never a hue. If a new element seems to need color to stand out, that is a sign it should compete on size, weight, or position instead.",
+        "section": "colors"
+      },
+      {
+        "name": "The Selection-Is-Inverted Rule",
+        "body": "Text selection (::selection) swaps the two ends of the palette: near-white background, soft-black text. It is the one moment the system runs its contrast in reverse, and it is confirmed, exact, and load-bearing (not a browser default left in place).",
+        "section": "colors"
+      },
+      {
+        "name": "The One-Family Rule",
+        "body": "Every character on the page, from the name to a figure's axis label, is Albert Sans. There is no serif, no mono, no second family for numbers or code.",
+        "section": "typography"
+      },
+      {
+        "name": "The One-Grid Rule",
+        "body": "Every row on the page uses the same two-column label grid. A new section should reuse it rather than invent a different column split.",
+        "section": "layout"
+      },
+      {
+        "name": "The Flat-By-Default Rule",
+        "body": "Nothing lifts off the page. If a new component seems to need a shadow to separate it from its surroundings, add space or a label instead.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Circle-Only Rule",
+        "body": "The photo and the dots inside a line figure are the only curves on the page. A new element that wants a rounded corner should default to sharp instead, unless it is genuinely circular.",
+        "section": "shapes"
+      }
     ],
     "dos": [
       "Do keep every new visual difference to a shift in the four established values (soft-black, near-white, quiet-gray, hairline), never a new hue.",

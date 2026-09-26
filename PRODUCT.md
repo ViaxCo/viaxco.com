@@ -36,9 +36,11 @@ Most of Victor's best work is private company code. The site shows the systems h
 - Kudy code, internal URLs, customer data, business numbers, PR or commit counts and colleague quotes must not appear.
 - Use "led" or "built" only where Victor did most of the work: the multi-region platform, the shared UI library, the TypeScript/Vite/Astro/React 19 upgrades, the cross-region sign-in. Use "worked on" or "with the team" for product features and page design. A Kudy designer drew the pages.
 - No screenshots of Kudy, Turn Up or Eko. Turn Up and Eko are text only.
-- Numbers appear only when the number is the story (3 sites, 0% to 100% of source files in TypeScript).
+- Numbers appear only when the number is the story (3 sites, 0% to 100% of source files in TypeScript). Launch dates are years only.
+- No internal product or package names. Say "Kudy's web app", "the internal admin app" and "a shared UI library".
 - Contact: ajibadevic@gmail.com, GitHub ViaxCo, LinkedIn victor-ajibade. No X.
-- "Open to select freelance work" is shown. "Open to roles" is not.
+- No availability line: neither "open to freelance work" nor "open to roles".
+- External links open in a new tab.
 
 ## Brand Commitments
 
