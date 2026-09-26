@@ -1,5 +1,6 @@
 ---
 const history = [
+  { month: "2023-06", label: "Jun 2023", typescript: 0, total: 186 },
   { month: "2023-09", label: "Sep 2023", typescript: 0, total: 193 },
   { month: "2023-12", label: "Dec 2023", typescript: 4, total: 196 },
   { month: "2024-01", label: "Jan 2024", typescript: 210, total: 277 },
@@ -17,43 +18,31 @@ const monthIndex = (month: string) => {
 const first = monthIndex(history[0].month);
 const span = monthIndex(history.at(-1)!.month) - first;
 
-const xAt = (month: string) => 40 + ((monthIndex(month) - first) / span) * 230;
+const xAt = (month: string) => 4 + ((monthIndex(month) - first) / span) * 266;
 const yAt = (share: number) => 92 - share * 0.76;
 
 const points = history.map((entry) => {
   const share = Math.round((entry.typescript / entry.total) * 100);
   return { ...entry, share, x: xAt(entry.month), y: yAt(share) };
 });
-const [jump, finish] = [points[2], points.at(-1)!];
+const [start, finish] = [points[0], points.at(-1)!];
+const jump = points.find((point) => point.month === "2024-01")!;
 const line = points
   .map(({ x, y }, i) => `${i ? "L" : "M"}${x.toFixed(1)} ${y.toFixed(1)}`)
   .join("");
-
-const years = ["2024", "2025", "2026"].map((year) => ({
-  year,
-  x: xAt(`${year}-01`),
-}));
 ---
 
 <figcaption class="mb-3 text-mute">
   How much of the web app is TypeScript
 </figcaption>
-<svg viewBox="0 0 280 116" role="img">
-  <title>From 0% in September 2023 to 100% in May 2026</title>
-  <path class="grid" d="M40 16H270M40 92H270" />
-  <path class="grid" d={years.map(({ x }) => `M${x} 92V96`).join("")} />
-  <text class="mute" x="0" y="20">
-    100%
-  </text>
-  <text class="mute" x="0" y="96">
-    0%
-  </text>
-  {years.map(({ year, x }) => (
-    <text class="mute" x={x} y="110" text-anchor="middle">
-      {year}
-    </text>
-  ))}
+<svg viewBox="0 0 280 112" role="img">
+  <title>From 0% when I joined in June 2023 to 100% in May 2026</title>
+  <path class="grid" d="M4 16H272M4 92H272" />
   <path class="draw" pathLength="1" d={line} />
+  <circle cx={start.x} cy={start.y} r="4" />
+  <text x="0" y="108">
+    {start.share}% when I joined, {start.label}
+  </text>
   <circle cx={jump.x} cy={jump.y} r="4" />
   <text x={jump.x + 9} y={jump.y + 14}>
     {jump.share}% by {jump.label}
