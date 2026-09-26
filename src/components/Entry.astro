@@ -1,0 +1,136 @@
+---
+const { title, detail, year, story, figure: Figure, link } = Astro.props;
+---
+
+<details class="entry">
+  <summary>
+    <span class="title">
+      {title}
+      <svg viewBox="0 0 10 10" class="icon" aria-hidden="true">
+        <path d="M5 1.5v7M1.5 5h7" />
+      </svg>
+    </span>
+    {detail && <span class="block text-mute">{detail}</span>}
+    <span class="block text-mute">{year}</span>
+  </summary>
+  <div class="panel max-w-[34rem] pt-3 pb-5 text-[14px] leading-[1.6] text-mute">
+    {story.map((paragraph) => (
+      <p class="mt-2.5 first:mt-0">{paragraph}</p>
+    ))}
+    {link && (
+      <p class="mt-2.5">
+        <a
+          href={link.url}
+          class="text-ink underline decoration-line hover:decoration-mute"
+        >
+          {link.label}
+        </a>
+      </p>
+    )}
+    {Figure && (
+      <figure class="figure mt-6">
+        <Figure />
+      </figure>
+    )}
+  </div>
+</details>
+
+<style>
+  @reference "../styles/global.css";
+
+  summary {
+    @apply cursor-pointer list-none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .title {
+    @apply inline-flex items-center gap-2 underline decoration-transparent transition-colors duration-200;
+  }
+
+  summary:hover .title,
+  .entry[open] .title {
+    @apply decoration-mute;
+  }
+
+  .icon {
+    @apply stroke-mute size-2.5 fill-none transition-transform duration-300;
+    stroke-width: 1.2;
+    stroke-linecap: round;
+  }
+
+  @media (width < 480px) {
+    .panel {
+      margin-inline-start: calc(-1 * var(--label, 0px));
+    }
+  }
+
+  .entry[open] .icon {
+    transform: rotate(45deg);
+  }
+
+  .entry::details-content {
+    block-size: 0;
+    overflow: visible clip;
+    transition:
+      block-size 0.5s var(--ease-out-expo),
+      content-visibility 0.5s allow-discrete;
+  }
+
+  .entry[open]::details-content {
+    block-size: auto;
+  }
+
+  .figure :global(svg) {
+    @apply fill-ink w-full max-w-[20rem] overflow-visible text-[12px];
+  }
+
+  .figure :global(text) {
+    font: inherit;
+  }
+
+  .figure :global(.mute) {
+    @apply fill-mute;
+  }
+
+  .figure :global(.draw) {
+    @apply stroke-ink fill-none;
+    stroke-width: 1.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .figure :global(.grid) {
+    @apply stroke-line fill-none;
+  }
+
+  .figure :global(.hit) {
+    fill: transparent;
+  }
+
+  .figure :global(.tip) {
+    @apply opacity-0 transition-opacity duration-150;
+  }
+
+  .figure :global(.point:hover .tip) {
+    @apply opacity-100;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .entry[open] :global(.draw) {
+      stroke-dasharray: 1;
+      animation: draw 0.9s var(--ease-out-expo) both;
+    }
+  }
+
+  @keyframes draw {
+    from {
+      stroke-dashoffset: 1;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+</style>
