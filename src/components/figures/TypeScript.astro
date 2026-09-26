@@ -1,0 +1,82 @@
+---
+const history = [
+  { month: "2023-09", label: "Sep 2023", typescript: 0, total: 193 },
+  { month: "2023-12", label: "Dec 2023", typescript: 4, total: 196 },
+  { month: "2024-01", label: "Jan 2024", typescript: 210, total: 277 },
+  { month: "2024-03", label: "Mar 2024", typescript: 247, total: 285 },
+  { month: "2024-09", label: "Sep 2024", typescript: 294, total: 327 },
+  { month: "2025-09", label: "Sep 2025", typescript: 297, total: 317 },
+  { month: "2026-04", label: "Apr 2026", typescript: 304, total: 323 },
+  { month: "2026-05", label: "May 2026", typescript: 412, total: 412 },
+  { month: "2026-09", label: "Sep 2026", typescript: 428, total: 428 },
+];
+
+const monthIndex = (month: string) => {
+  const [year, m] = month.split("-").map(Number);
+  return year * 12 + m;
+};
+const first = monthIndex(history[0].month);
+const span = monthIndex(history.at(-1)!.month) - first;
+
+const points = history.map((entry) => {
+  const share = Math.round((entry.typescript / entry.total) * 100);
+  return {
+    ...entry,
+    share,
+    x: 10 + ((monthIndex(entry.month) - first) / span) * 260,
+    y: 92 - share * 0.76,
+  };
+});
+const line = points
+  .map(({ x, y }, i) => `${i ? "L" : "M"}${x.toFixed(1)} ${y.toFixed(1)}`)
+  .join("");
+---
+
+<svg viewBox="0 0 280 116" role="img" aria-labelledby="fig-typescript">
+  <title id="fig-typescript">Share of the web app's source files in TypeScript, from 0% in September 2023 to 100% in May 2026</title>
+  <path class="grid" d="M10 16H270M10 92H270" />
+  <path class="draw" pathLength="1" d={line} />
+  {points.map((point, i) => (
+    <g class="point">
+      <circle class="hit" cx={point.x} cy={point.y} r="10" />
+      <circle cx={point.x} cy={point.y} r="4" />
+      <text
+        class="tip"
+        x={point.x}
+        y={point.y - 10}
+        text-anchor={
+          i === 0 ? "start" : i >= points.length - 2 ? "end" : "middle"
+        }
+      >
+        {point.label} · {point.share}%
+      </text>
+    </g>
+  ))}
+  <text class="mute" x="10" y="110">
+    Sep 2023 · 0%
+  </text>
+  <text class="mute" x="270" y="110" text-anchor="end">
+    Sep 2026 · 100%
+  </text>
+</svg>
+<div class="sr-only">
+  <table>
+    <caption>Web app source files in TypeScript</caption>
+    <thead>
+      <tr>
+        <th>Month</th>
+        <th>TypeScript files</th>
+        <th>All source files</th>
+      </tr>
+    </thead>
+    <tbody>
+      {history.map((entry) => (
+        <tr>
+          <td>{entry.label}</td>
+          <td>{entry.typescript}</td>
+          <td>{entry.total}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
