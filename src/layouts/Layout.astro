@@ -1,9 +1,11 @@
 ---
 import "../styles/global.css";
 
-const title = "Victor Ajibade · Software engineer";
-const description =
-  "Victor Ajibade is a software engineer in Abuja, Nigeria. He builds with care and pays close attention to the little details.";
+const {
+  title = "Victor Ajibade · Software engineer",
+  description = "Victor Ajibade is a software engineer in Abuja, Nigeria. He builds with care and pays close attention to the little details.",
+} = Astro.props;
+const url = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
@@ -16,9 +18,9 @@ const description =
     <meta name="theme-color" content="#0a0a0a" />
     <link rel="icon" href="/favicon.png" type="image/png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="canonical" href={Astro.site} />
+    <link rel="canonical" href={url} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={Astro.site} />
+    <meta property="og:url" content={url} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
   </head>
