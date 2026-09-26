@@ -8,7 +8,6 @@ const history = [
   { month: "2025-09", label: "Sep 2025", typescript: 297, total: 317 },
   { month: "2026-04", label: "Apr 2026", typescript: 304, total: 323 },
   { month: "2026-05", label: "May 2026", typescript: 412, total: 412 },
-  { month: "2026-09", label: "Sep 2026", typescript: 428, total: 428 },
 ];
 
 const monthIndex = (month: string) => {
@@ -25,17 +24,15 @@ const points = history.map((entry) => {
   const share = Math.round((entry.typescript / entry.total) * 100);
   return { ...entry, share, x: xAt(entry.month), y: yAt(share) };
 });
+const [jump, finish] = [points[2], points.at(-1)!];
 const line = points
   .map(({ x, y }, i) => `${i ? "L" : "M"}${x.toFixed(1)} ${y.toFixed(1)}`)
   .join("");
 
-const yearStarts = ["2024-01", "2025-01", "2026-01"].map(xAt);
-const years = [
-  { label: "2023", month: "2023-11" },
-  { label: "2024", month: "2024-07" },
-  { label: "2025", month: "2025-07" },
-  { label: "2026", month: "2026-05" },
-];
+const years = ["2024", "2025", "2026"].map((year) => ({
+  year,
+  x: xAt(`${year}-01`),
+}));
 ---
 
 <figcaption class="mb-3 text-mute">
@@ -44,35 +41,27 @@ const years = [
 <svg viewBox="0 0 280 116" role="img">
   <title>From 0% in September 2023 to 100% in May 2026</title>
   <path class="grid" d="M40 16H270M40 92H270" />
-  <path class="grid" d={yearStarts.map((x) => `M${x} 92V96`).join("")} />
+  <path class="grid" d={years.map(({ x }) => `M${x} 92V96`).join("")} />
   <text class="mute" x="0" y="20">
     100%
   </text>
   <text class="mute" x="0" y="96">
     0%
   </text>
-  {years.map((year) => (
-    <text class="mute" x={xAt(year.month)} y="110" text-anchor="middle">
-      {year.label}
+  {years.map(({ year, x }) => (
+    <text class="mute" x={x} y="110" text-anchor="middle">
+      {year}
     </text>
   ))}
   <path class="draw" pathLength="1" d={line} />
-  {points.map((point, i) => (
-    <g class="point">
-      <circle class="hit" cx={point.x} cy={point.y} r="10" />
-      <circle cx={point.x} cy={point.y} r="4" />
-      <text
-        class="tip"
-        x={point.x}
-        y={point.y - 10}
-        text-anchor={
-          i === 0 ? "start" : i >= points.length - 2 ? "end" : "middle"
-        }
-      >
-        {point.label} · {point.share}%
-      </text>
-    </g>
-  ))}
+  <circle cx={jump.x} cy={jump.y} r="4" />
+  <text x={jump.x + 9} y={jump.y + 14}>
+    {jump.share}% by {jump.label}
+  </text>
+  <circle cx={finish.x} cy={finish.y} r="4" />
+  <text x={finish.x} y={finish.y - 9} text-anchor="end">
+    {finish.share}% by {finish.label}
+  </text>
 </svg>
 <div class="sr-only">
   <table>

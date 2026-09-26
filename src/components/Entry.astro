@@ -107,18 +107,6 @@ const { title, detail, story, figure: Figure, figureProps, link } = Astro.props;
     @apply stroke-line fill-none;
   }
 
-  .figure :global(.hit) {
-    fill: transparent;
-  }
-
-  .figure :global(.tip) {
-    @apply opacity-0 transition-opacity duration-150;
-  }
-
-  .figure :global(.point:hover .tip) {
-    @apply opacity-100;
-  }
-
   @media (prefers-reduced-motion: no-preference) {
     .entry[open] :global(.draw) {
       stroke-dasharray: 1;

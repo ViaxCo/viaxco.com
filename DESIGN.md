@@ -193,7 +193,7 @@ There are no borders, no card edges, and no divider lines between rows. The hair
 - **Do** keep every new visual difference to a shift in the four established values (near-black, near-white, quiet-gray, hairline), never a new hue.
 - **Do** reuse the one two-column label grid for any new row; don't invent a second layout pattern for a new section.
 - **Do** keep hover feedback fast (200ms) and reveal/open motion slow (500-900ms, `cubic-bezier(0.16, 1, 0.3, 1)`); don't blend the two speeds.
-- **Do** set every new figure in the same line-dot-text vocabulary (`.draw`, `.mute`, `.grid`, `.hit`, `.tip`) so a new figure reads as part of the same family as the other figures.
+- **Do** set every new figure in the same line-dot-text vocabulary (`.draw`, `.mute`, `.grid`) and label only the points that matter, with always-visible text so a new figure reads as part of the same family as the other figures.
 
 ### Don't:
 
