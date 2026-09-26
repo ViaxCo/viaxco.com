@@ -18,23 +18,44 @@ const monthIndex = (month: string) => {
 const first = monthIndex(history[0].month);
 const span = monthIndex(history.at(-1)!.month) - first;
 
+const xAt = (month: string) => 40 + ((monthIndex(month) - first) / span) * 230;
+const yAt = (share: number) => 92 - share * 0.76;
+
 const points = history.map((entry) => {
   const share = Math.round((entry.typescript / entry.total) * 100);
-  return {
-    ...entry,
-    share,
-    x: 10 + ((monthIndex(entry.month) - first) / span) * 260,
-    y: 92 - share * 0.76,
-  };
+  return { ...entry, share, x: xAt(entry.month), y: yAt(share) };
 });
 const line = points
   .map(({ x, y }, i) => `${i ? "L" : "M"}${x.toFixed(1)} ${y.toFixed(1)}`)
   .join("");
+
+const yearStarts = ["2024-01", "2025-01", "2026-01"].map(xAt);
+const years = [
+  { label: "2023", month: "2023-11" },
+  { label: "2024", month: "2024-07" },
+  { label: "2025", month: "2025-07" },
+  { label: "2026", month: "2026-05" },
+];
 ---
 
-<svg viewBox="0 0 280 116" role="img" aria-labelledby="fig-typescript">
-  <title id="fig-typescript">Share of the web app's source files in TypeScript, from 0% in September 2023 to 100% in May 2026</title>
-  <path class="grid" d="M10 16H270M10 92H270" />
+<figcaption class="mb-3 text-mute">
+  How much of the web app is TypeScript
+</figcaption>
+<svg viewBox="0 0 280 116" role="img">
+  <title>From 0% in September 2023 to 100% in May 2026</title>
+  <path class="grid" d="M40 16H270M40 92H270" />
+  <path class="grid" d={yearStarts.map((x) => `M${x} 92V96`).join("")} />
+  <text class="mute" x="0" y="20">
+    100%
+  </text>
+  <text class="mute" x="0" y="96">
+    0%
+  </text>
+  {years.map((year) => (
+    <text class="mute" x={xAt(year.month)} y="110" text-anchor="middle">
+      {year.label}
+    </text>
+  ))}
   <path class="draw" pathLength="1" d={line} />
   {points.map((point, i) => (
     <g class="point">
@@ -52,12 +73,6 @@ const line = points
       </text>
     </g>
   ))}
-  <text class="mute" x="10" y="110">
-    Sep 2023 · 0%
-  </text>
-  <text class="mute" x="270" y="110" text-anchor="end">
-    Sep 2026 · 100%
-  </text>
 </svg>
 <div class="sr-only">
   <table>
