@@ -1,0 +1,44 @@
+@import "tailwindcss";
+@import "@fontsource-variable/albert-sans";
+
+@theme {
+  --font-sans: "Albert Sans Variable", ui-sans-serif, system-ui, sans-serif;
+  --color-ground: #161514;
+  --color-ink: #efeff0;
+  --color-mute: #909090;
+  --color-line: #3a3936;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    interpolate-size: allow-keywords;
+    scrollbar-color: var(--color-line) transparent;
+  }
+
+  html {
+    background: var(--color-ground);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: "tnum";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--color-ink);
+    color: var(--color-ground);
+  }
+
+  :focus-visible {
+    outline: 1px solid var(--color-ink);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  a {
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.25em;
+  }
+}
