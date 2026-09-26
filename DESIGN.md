@@ -73,9 +73,9 @@ typography:
     letterSpacing: "-0.005em"
   cv-body:
     fontFamily: "Albert Sans Variable, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "12.5px"
+    fontSize: "13.33px"
     fontWeight: 400
-    lineHeight: 1.38
+    lineHeight: 1.34
     letterSpacing: "-0.005em"
 rounded:
   focus: "2px"
@@ -208,7 +208,7 @@ There are no borders, no card edges, and no divider lines between rows. The hair
 
 - The CV at `/cv` is the one place the page turns light: a white A4 sheet (`paper`) on the dark ground on screen, and the whole page when printed or saved as PDF.
 - It keeps the site's grammar: Albert Sans only, gray section labels (Experience, Projects, Skills, Education) in a narrow left column, and no cards or colour. Sections are split by one hairline (`print-rule`), because paper needs a clearer break than the screen does.
-- Text is `print-ink`, secondary text `print-gray` (5.7:1 on white). Sizes: `cv-name` 22px, `cv-title` 15px, `cv-body` 12.5px.
+- Text is `print-ink`, secondary text `print-gray` (5.7:1 on white). Sizes: `cv-name` 22px, `cv-title` 15px, `cv-body` 13.33px, which prints at 10pt, the smallest size to use for body text.
 - It must fit one A4 page. `npm run cv:pdf` builds the PDF and fails if it runs to a second page.
 - On phones the labels stack above their content and dates drop below the role; the PDF is unaffected.
 
