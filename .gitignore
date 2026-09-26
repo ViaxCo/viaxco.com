@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.astro/
+.DS_Store
+.impeccable/mocks/
+.impeccable/build/
+.impeccable/review/
+.impeccable/*.json
+!.impeccable/design.json
+.impeccable/questions/
