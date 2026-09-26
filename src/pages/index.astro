@@ -81,24 +81,46 @@ const external = { target: "_blank", rel: "noreferrer" };
 
 const projects = [
   {
-    name: "Interview Studio",
-    detail: "Interview practice, with progress synced to Google sign-in",
-    url: "https://viaxco-interview-studio.netlify.app",
-  },
-  {
     name: "Gemini File Processor",
-    detail: "Batch-processes documents with Gemini and exports to Google Drive",
+    detail:
+      "My church's sermon archive was only audio. I transcribed over 3,000 recordings with MacWhisper, then this app cleaned up each transcript and saved it to Google Drive.",
     url: "https://gemini-file-processor.vercel.app",
+    proof: {
+      label: "See the transcripts",
+      url: "https://drive.google.com/drive/folders/1FcVJuxyvzeR4SAv894fVE4yZekJFAfq4",
+    },
   },
   {
     name: "Gemini Image & Audio to Text",
-    detail: "OCR and transcription in the browser, exported to Word",
+    detail:
+      "I photograph whole books, and this app turns the pages into text I can edit.",
     url: "https://gemini-image-and-audio-to-text.vercel.app",
   },
   {
+    name: "WhatsApp unread counter",
+    detail:
+      "My Dock stays hidden and WhatsApp notifications are off, so I kept missing messages. This puts the unread count in the menu bar.",
+  },
+  {
     name: "MicMuteBar",
-    detail: "A macOS menu bar app that truly mutes the mic",
+    detail:
+      "Mic Drop costs money, so I built my own way to mute my mic from the menu bar, whatever app I'm in.",
     url: "https://github.com/ViaxCo/MicMuteBar",
+  },
+  {
+    name: "ActiveTimeBar",
+    detail: "Today's active time from ActivityWatch, right in the menu bar.",
+  },
+  {
+    name: "Spotify Notifications",
+    detail:
+      "Spotify doesn't tell you when the song changes, so I built a Chrome extension that does.",
+    url: "https://chromewebstore.google.com/detail/spotify-notifications/bafpmlbnkbemofddicmfkaigjnicdmcl",
+  },
+  {
+    name: "Interview Studio",
+    detail: "Interview practice I built for a friend who was job hunting.",
+    url: "https://viaxco-interview-studio.netlify.app",
   },
 ];
 
@@ -211,17 +233,35 @@ const elsewhere = [
           <ul class="grid gap-y-3">
             {items.map((item) => (
               <li>
-                <a
-                  href={item.url}
-                  class="link inline-flex items-center gap-1.5"
-                  {...external}
-                >
-                  {item.name}
-                  <svg viewBox="0 0 12 12" class="arrow" aria-hidden="true">
-                    <path d="M3.5 8.5l5-5M4.5 3.5h4v4" />
-                  </svg>
-                </a>
-                <span class="block text-mute">{item.detail}</span>
+                {item.url ? (
+                  <a
+                    href={item.url}
+                    class="link inline-flex items-center gap-1.5"
+                    {...external}
+                  >
+                    {item.name}
+                    <svg viewBox="0 0 12 12" class="arrow" aria-hidden="true">
+                      <path d="M3.5 8.5l5-5M4.5 3.5h4v4" />
+                    </svg>
+                  </a>
+                ) : (
+                  <span>{item.name}</span>
+                )}
+                <span class="block max-w-[34rem] text-mute">
+                  {item.detail}
+                  {item.proof && (
+                    <>
+                      {" "}
+                      <a
+                        href={item.proof.url}
+                        class="link text-ink"
+                        {...external}
+                      >
+                        {item.proof.label}
+                      </a>
+                    </>
+                  )}
+                </span>
               </li>
             ))}
           </ul>
