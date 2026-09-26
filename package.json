@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "cv:pdf": "sh scripts/cv-pdf.sh"
   },
   "dependencies": {
     "@fontsource-variable/albert-sans": "^5.3.0",

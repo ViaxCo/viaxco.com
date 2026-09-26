@@ -6,6 +6,10 @@ colors:
   near-white: "#ededed"
   quiet-gray: "#a3a3a3"
   hairline: "#2a2a2a"
+  paper: "#ffffff"
+  print-ink: "#111111"
+  print-gray: "#5f5f5f"
+  print-rule: "#dcdcdc"
 typography:
   display:
     fontFamily: "Albert Sans Variable, ui-sans-serif, system-ui, sans-serif"
@@ -55,6 +59,24 @@ typography:
     fontWeight: 400
     lineHeight: 1.2
     letterSpacing: "-0.01em"
+  cv-name:
+    fontFamily: "Albert Sans Variable, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "22px"
+    fontWeight: 500
+    lineHeight: 1.2
+    letterSpacing: "-0.015em"
+  cv-title:
+    fontFamily: "Albert Sans Variable, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "15px"
+    fontWeight: 400
+    lineHeight: 1.38
+    letterSpacing: "-0.005em"
+  cv-body:
+    fontFamily: "Albert Sans Variable, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "12.5px"
+    fontWeight: 400
+    lineHeight: 1.38
+    letterSpacing: "-0.005em"
 rounded:
   focus: "2px"
   full: "9999px"
@@ -181,6 +203,14 @@ There are no borders, no card edges, and no divider lines between rows. The hair
 - **Open state:** the plus icon rotates 45° into an ×, and the title's underline turns gray and stays gray for as long as the entry is open (the open state keeps its own affordance visible, it does not just revert to the hover style).
 - **Reveal motion:** the panel's height animates open and closed over 500ms with the system's slow-reveal easing (`cubic-bezier(0.16, 1, 0.3, 1)`), using `::details-content` transitions rather than a plain hide/show. This is the slowest, most deliberate motion in the system, reserved for content actually arriving.
 - **Signature component, the line figure:** inside an opened "Built" entry, a small inline SVG (roughly 280px wide, viewBox-scaled) sketches the fact just told: one codebase branching to three sites, one library feeding two apps, and a line chart of the move to TypeScript. Every figure shares one visual vocabulary: a near-white stroke (`.draw`, 1.2px, round caps and joins) for the main line, near-white dots for points, gray text (`.mute`) for secondary labels inline in a caption, and hairline gray (`.grid`) for any reference line. When an entry opens, `.draw` strokes animate in over 900ms with the same slow easing as the panel reveal, so the line looks hand-drawn rather than pasted in (this motion is skipped under `prefers-reduced-motion`). A figure never uses a fill, a color outside the four-value palette, or a shape besides a line and a dot. Charts label only the points that carry the story (the TypeScript chart labels three: when I joined, the jump and 100%), always visible, with no hover tooltips, because hover does not work on phones.
+
+### Print sheet (the CV)
+
+- The CV at `/cv` is the one place the page turns light: a white A4 sheet (`paper`) on the dark ground on screen, and the whole page when printed or saved as PDF.
+- It keeps the site's grammar: Albert Sans only, gray section labels (Experience, Projects, Skills, Education) in a narrow left column, and no cards or colour. Sections are split by one hairline (`print-rule`), because paper needs a clearer break than the screen does.
+- Text is `print-ink`, secondary text `print-gray` (5.7:1 on white). Sizes: `cv-name` 22px, `cv-title` 15px, `cv-body` 12.5px.
+- It must fit one A4 page. `npm run cv:pdf` builds the PDF and fails if it runs to a second page.
+- On phones the labels stack above their content and dates drop below the role; the PDF is unaffected.
 
 ### Navigation / header
 

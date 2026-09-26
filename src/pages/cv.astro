@@ -1,0 +1,383 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const contacts = [
+  { label: "ajibadevic@gmail.com", url: "mailto:ajibadevic@gmail.com" },
+  { label: "+234 812 614 0901", url: "tel:+2348126140901" },
+  { label: "viaxco.com", url: "https://www.viaxco.com" },
+  { label: "github.com/ViaxCo", url: "https://github.com/ViaxCo" },
+  {
+    label: "linkedin.com/in/victor-ajibade",
+    url: "https://www.linkedin.com/in/victor-ajibade/",
+  },
+];
+
+const experience = [
+  {
+    role: "Frontend Engineer",
+    org: "Kudy Financials",
+    url: "https://kudy.io",
+    dates: "Jun 2023 – now",
+    bullets: [
+      "Split one codebase so it builds a separate site for Nigeria (2024) and the US (2025) next to the global site, on AWS S3, CloudFront, ACM and Cloudflare. Built sign-in that carries users between the sites, and wrote the runbook for adding a country.",
+      "Built a shared UI library for the web app and the internal admin app, with typed builds and automatic releases, from v1 in 2024 to v3.6.",
+      "Moved the web app from JavaScript to TypeScript (0% to 100% of files), from Create React App to Vite, and to Tailwind v4 and React 19 while features kept shipping. Moved the public pages to Astro so search engines can read them.",
+      "Work across the web app, the admin app and the Node.js API: an audit trail for transaction changes, server-side user preferences, payout and tax fixes with tests, and a Telegram exchange-rate bot.",
+      "Run production releases, review frontend changes, and trace production issues with Sentry and Datadog.",
+    ],
+  },
+  {
+    role: "Contract Engineer",
+    org: "Chasebig Limited",
+    url: "https://benjaminmacaulay.dev",
+    dates: "Apr – Jun 2026",
+    bullets: [
+      "Turn Up, a live nightlife booking app: took over development and fixed and built on Stripe Connect payouts to venues, phone sign-in, and booking and check-in rules, across Flutter, Next.js dashboards and Firebase.",
+      "Eko International Market: built the fulfilment and operations tools, including shipment tracking, disputes, admin analytics and exports, stock held during payment, and buyer and vendor messaging.",
+    ],
+  },
+  {
+    role: "Freelance",
+    dates: "2024 – now",
+    bullets: [
+      "Sites and web apps for ADEK Properties, Hadassah Honey Hub, Tobey Okafor (edited through a CMS), Emora SmartMatch, and a church membership, attendance and giving system.",
+    ],
+  },
+  {
+    role: "Independent projects",
+    dates: "2021 – 2023",
+    bullets: [
+      "A shopping app, a news app with comments, an expense tracker and Telegram bots.",
+    ],
+  },
+  {
+    role: "Frontend Developer",
+    org: "HASOB Integrated Services",
+    url: "https://hasob.ng",
+    dates: "Feb – Jun 2021",
+    bullets: [
+      "Built the frontend of SCOLA, a school management app, after starting as an intern.",
+    ],
+  },
+  {
+    role: "System Planning & Development Engineer",
+    org: "Transmission Company of Nigeria",
+    dates: "2018 – 2020",
+    bullets: ["Worked on power system planning for the national grid."],
+  },
+];
+
+const projects = [
+  {
+    name: "Teaching transcripts",
+    text: "Transcribed over 3,000 of my pastor's recorded teachings with MacWhisper, then cleaned them up and saved them to Google Drive with Gemini File Processor, a batch tool I built with Next.js and the AI SDK.",
+  },
+  {
+    name: "Self-hosted automation",
+    text: "My own n8n on a VPS with Docker and Traefik, running 22 workflows, including my church's weekly reports over WhatsApp and Telegram.",
+  },
+  {
+    name: "Mac and browser tools",
+    text: "MicMuteBar and a WhatsApp unread counter, both Swift menu bar apps, and Spotify Notifications, a Chrome extension on the Web Store.",
+  },
+];
+
+const skills = [
+  { group: "Languages", items: "TypeScript, JavaScript, Swift, Dart, SQL" },
+  {
+    group: "Frontend",
+    items: "React, Next.js, Astro, Vite, Tailwind CSS, TanStack Query, Redux",
+  },
+  {
+    group: "Backend",
+    items: "Node.js, Express, PostgreSQL, Firebase, Stripe",
+  },
+  {
+    group: "Infrastructure",
+    items: "AWS S3 and CloudFront, Cloudflare, Docker, GitHub Actions, n8n",
+  },
+];
+---
+
+<Layout
+  title="Victor Ajibade · CV"
+  description="CV of Victor Ajibade, a software engineer in Abuja, Nigeria."
+>
+  <main class="page">
+    <p class="actions">
+      <a href="/">viaxco.com</a>
+      <a href="/victor-ajibade-cv.pdf">Download PDF</a>
+    </p>
+
+    <article class="sheet">
+      <header>
+        <h1>Victor Ajibade</h1>
+        <p class="title">Software Engineer · Abuja, Nigeria</p>
+        <ul class="contacts">
+          {contacts.map((contact) => (
+            <li>
+              {contact.url ? (
+                <a href={contact.url}>{contact.label}</a>
+              ) : (
+                contact.label
+              )}
+            </li>
+          ))}
+        </ul>
+      </header>
+
+      <p class="summary">
+        I build with care and pay close attention to the little details. For
+        three years I have worked across a fintech web app, its admin app and
+        its API. In my own time I fix everyday problems with small tools and
+        automations.
+      </p>
+
+      <section class="row">
+        <h2>Experience</h2>
+        <div class="stack">
+          {experience.map((job) => (
+            <div>
+              <p class="head">
+                <span>
+                  <strong>{job.role}</strong>
+                  {job.org && (
+                    <>
+                      {", "}
+                      {job.url ? <a href={job.url}>{job.org}</a> : job.org}
+                    </>
+                  )}
+                </span>
+                <span class="dates">{job.dates}</span>
+              </p>
+              <ul class="bullets">
+                {job.bullets.map((bullet) => (
+                  <li>{bullet}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="row">
+        <h2>Projects</h2>
+        <ul class="stack-tight">
+          {projects.map((project) => (
+            <li>
+              <strong>{project.name}.</strong> {project.text}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section class="row">
+        <h2>Skills</h2>
+        <ul class="stack-tight">
+          {skills.map((skill) => (
+            <li>
+              <span class="mute">{skill.group}:</span> {skill.items}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section class="row">
+        <h2>Education</h2>
+        <p class="head">
+          <span>
+            <strong>B.Eng. Electrical and Electronics Engineering</strong>,
+            Landmark University · First Class Honours
+          </span>
+          <span class="dates">2014 – 2019</span>
+        </p>
+      </section>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  .page {
+    padding: 2rem 1rem 4rem;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    max-width: 210mm;
+    margin: 0 auto 1rem;
+    font-size: 14px;
+  }
+
+  .actions a {
+    text-decoration: underline;
+    text-decoration-color: var(--color-line);
+  }
+
+  .actions a:hover {
+    text-decoration-color: var(--color-mute);
+  }
+
+  .sheet {
+    --ink: #111111;
+    --mute: #5f5f5f;
+    --rule: #dcdcdc;
+    max-width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    padding: 12mm 15mm;
+    background: #ffffff;
+    color: var(--ink);
+    font-size: 12.5px;
+    line-height: 1.38;
+    letter-spacing: -0.005em;
+  }
+
+  .sheet ::selection {
+    background: var(--ink);
+    color: #ffffff;
+  }
+
+  .sheet a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: var(--rule);
+    text-underline-offset: 0.2em;
+  }
+
+  .sheet a:hover {
+    text-decoration-color: var(--mute);
+  }
+
+  h1 {
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+  }
+
+  .title {
+    font-size: 15px;
+    color: var(--mute);
+  }
+
+  .contacts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px 14px;
+    margin-top: 8px;
+    color: var(--mute);
+  }
+
+  .summary {
+    margin-top: 12px;
+    max-width: 150mm;
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: 24mm 1fr;
+    margin-top: 13px;
+    padding-top: 11px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .row > h2 {
+    color: var(--mute);
+  }
+
+  .stack {
+    display: grid;
+    gap: 10px;
+  }
+
+  .stack-tight {
+    display: grid;
+    gap: 4px;
+  }
+
+  .head {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  strong {
+    font-weight: 500;
+  }
+
+  .dates {
+    flex-shrink: 0;
+    color: var(--mute);
+  }
+
+  .mute {
+    color: var(--mute);
+  }
+
+  .bullets {
+    margin-top: 3px;
+    display: grid;
+    gap: 3px;
+  }
+
+  .bullets li {
+    position: relative;
+    padding-left: 12px;
+  }
+
+  .bullets li::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 0.62em;
+    width: 4px;
+    height: 1px;
+    background: var(--mute);
+  }
+
+  @media screen and (width < 40rem) {
+    .page {
+      padding: 1.5rem 0.75rem 3rem;
+    }
+
+    .sheet {
+      min-height: 0;
+      padding: 24px 20px;
+    }
+
+    .row {
+      grid-template-columns: 1fr;
+      row-gap: 8px;
+    }
+
+    .head {
+      flex-direction: column;
+      gap: 0;
+    }
+  }
+
+  @media print {
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    :global(html),
+    :global(body) {
+      background: #ffffff;
+    }
+
+    .page {
+      padding: 0;
+    }
+
+    .actions {
+      display: none;
+    }
+
+    .sheet {
+      min-height: 0;
+    }
+  }
+</style>
