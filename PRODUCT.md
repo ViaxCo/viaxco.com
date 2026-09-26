@@ -53,7 +53,7 @@ Most of Victor's best work is private company code. The site shows the systems h
 ## Evidence on Hand
 
 - Photo: the GitHub avatar, until the owner gives a new one.
-- Live projects: Interview Studio, Gemini File Processor, Gemini Image and Audio to Text, MicMuteBar, ADEK Properties, Hadassah Honey Hub, Tobey Okafor portfolio, Church Database demo, Emora SmartMatch, and the six 2021 demos.
+- Live projects: Interview Studio, Gemini File Processor, Gemini Image and Audio to Text, MicMuteBar, ADEK Properties, Hadassah Honey Hub, Tobey Okafor portfolio, Church Database demo, Emora SmartMatch, and two 2021 HASOB projects (SCOLA school portal, shopping app).
 - No testimonials, metrics or client logos exist for publication. Do not invent them.
 
 ## Product Principles
