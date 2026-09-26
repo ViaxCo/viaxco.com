@@ -174,27 +174,21 @@ const elsewhere = [
         </div>
       </section>
 
-      <section class="row">
-        <h2>Built</h2>
-        <ul class="grid gap-y-3">
-          {built.map((item) => (
-            <li>
-              <Entry {...item} />
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section class="row">
-        <h2>Contract</h2>
-        <ul class="grid gap-y-3">
-          {contract.map((item) => (
-            <li>
-              <Entry {...item} />
-            </li>
-          ))}
-        </ul>
-      </section>
+      {[
+        { label: "Built", items: built },
+        { label: "Contract", items: contract },
+      ].map(({ label, items }) => (
+        <section class="row">
+          <h2>{label}</h2>
+          <ul class="grid gap-y-3">
+            {items.map((item) => (
+              <li>
+                <Entry {...item} />
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
 
       {[
         { label: "Projects", items: projects },
