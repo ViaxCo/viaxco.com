@@ -1,5 +1,5 @@
 ---
-const { title, detail, year, story, figure: Figure, link } = Astro.props;
+const { title, detail, story, figure: Figure, figureProps, link } = Astro.props;
 ---
 
 <details class="entry">
@@ -11,7 +11,6 @@ const { title, detail, year, story, figure: Figure, link } = Astro.props;
       </svg>
     </span>
     {detail && <span class="block text-mute">{detail}</span>}
-    <span class="block text-mute">{year}</span>
   </summary>
   <div class="panel max-w-[34rem] pt-3 pb-5 text-[14px] leading-[1.6] text-mute">
     {story.map((paragraph) => (
@@ -21,6 +20,8 @@ const { title, detail, year, story, figure: Figure, link } = Astro.props;
       <p class="mt-2.5">
         <a
           href={link.url}
+          target="_blank"
+          rel="noreferrer"
           class="text-ink underline decoration-line hover:decoration-mute"
         >
           {link.label}
@@ -29,7 +30,7 @@ const { title, detail, year, story, figure: Figure, link } = Astro.props;
     )}
     {Figure && (
       <figure class="figure mt-6">
-        <Figure />
+        <Figure {...figureProps} />
       </figure>
     )}
   </div>

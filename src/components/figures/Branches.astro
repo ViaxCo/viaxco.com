@@ -1,0 +1,31 @@
+---
+const { source, targets } = Astro.props;
+
+const top = 16;
+const gap = 30;
+const ys = targets.map((_, i) => top + i * gap);
+const middle = (ys[0] + ys.at(-1)) / 2;
+const height = ys.at(-1) + top;
+const branches = ys.map((y) => `M132 ${y}H164`).join("");
+---
+
+<svg viewBox={`0 0 280 ${height}`} role="img">
+  <title>{source} feeds {targets.map((target) => target.label).join(", ")}</title>
+  <text x="0" y={middle + 4}>
+    {source}
+  </text>
+  <path
+    class="draw"
+    pathLength="1"
+    d={`M104 ${middle}H132M132 ${ys[0]}V${ys.at(-1)}${branches}`}
+  />
+  {targets.map((target, i) => (
+    <>
+      <circle cx="168" cy={ys[i]} r="3" />
+      <text x="178" y={ys[i] + 4}>
+        {target.label}
+        {target.note && <tspan class="mute"> · {target.note}</tspan>}
+      </text>
+    </>
+  ))}
+</svg>
