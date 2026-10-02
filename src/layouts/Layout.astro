@@ -6,6 +6,7 @@ const {
   description = "Victor Ajibade is a software engineer in Abuja, Nigeria. He builds with care and pays close attention to the little details.",
 } = Astro.props;
 const url = new URL(Astro.url.pathname, Astro.site);
+const siteName = "Victor Ajibade";
 ---
 
 <!doctype html>
@@ -23,6 +24,17 @@ const url = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:url" content={url} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    <meta property="og:site_name" content={siteName} />
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: siteName,
+        url: Astro.site,
+      })}
+    />
   </head>
   <body class="min-h-dvh">
     <slot />
