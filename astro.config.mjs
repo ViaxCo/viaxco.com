@@ -4,7 +4,7 @@ import { defineConfig } from "astro/config";
 
 export default defineConfig({
   site: "https://www.viaxco.com",
-  integrations: [sitemap()],
+  integrations: [sitemap({ filter: (page) => !page.endsWith("/cv/") })],
   vite: {
     plugins: [tailwindcss()],
   },
