@@ -27,6 +27,14 @@ const siteName = "Victor Ajibade";
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:site_name" content={siteName} />
+    <meta property="og:image" content={new URL("/og.png", Astro.site)} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Victor Ajibade, software engineer. I build with care and pay close attention to the little details."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
     <script
       is:inline
       type="application/ld+json"
