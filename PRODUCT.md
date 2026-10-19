@@ -53,7 +53,7 @@ Most of Victor's best work is private company code. The site shows the systems h
 ## Evidence on Hand
 
 - Photo: the GitHub avatar, until the owner gives a new one.
-- Live projects: Gemini File Processor (with the public "Teaching Transcripts" Drive folder, 3,011 docs), Gemini Image and Audio to Text, MicMuteBar, Spotify Notifications (Chrome Web Store), Interview Studio, ADEK Properties, Hadassah Honey Hub, Tobey Okafor portfolio, Church Database demo, Emora SmartMatch, and two 2021 HASOB projects (SCOLA school portal, shopping app).
+- Live projects: Gemini File Processor (with the public "Teaching Transcripts" Drive folder, 3,011 docs), Gemini Image and Audio to Text, MicMuteBar, Spotify Notifications (Chrome Web Store), Interview Studio, ADEK Properties, Hadassah Honey Hub, Tobey Okafor portfolio, Church Database demo, Emora SmartMatch, YRN Beauty (a site for a Lagos makeup artist, listed as a project), and two 2021 HASOB projects (SCOLA school portal, shopping app).
 - Private, unlinked projects: the WhatsApp unread counter (keep "WhatsApp" out of any public product name) and ActiveTimeBar.
 - No testimonials, metrics or client logos exist for publication. Do not invent them.
 
